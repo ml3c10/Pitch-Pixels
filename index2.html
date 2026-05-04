@@ -1,0 +1,1553 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pitch &amp; Pixels</title>
+    <link rel="icon" href="Photos/favicon-96x96.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Teko:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style2.css" />
+    <script src="jQuery.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-inner">
+          <div class="header-top">
+            <div>
+              <h1 class="site-title" onclick="showPage('home')">
+                Pitch &amp; Pixels
+              </h1>
+              <p class="site-tagline">
+                Where the Beautiful Game Meets Epic Tales
+              </p>
+            </div>
+            <nav>
+              <ul>
+                <li><a href="#" data-target="home">Home</a></li>
+                <li><a href="#" data-target="football">The Pitch</a></li>
+                <li><a href="#" data-target="gaming">The Console</a></li>
+                <li><a href="#" data-target="stories">Journal</a></li>
+                <li><a href="#" data-target="gallery">Gallery</a></li>
+                <li><a href="#" data-target="about">My Story</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ========== HOME PAGE ========== -->
+      <div data-page="home">
+        <section class="hero">
+          <div class="hero-bg-elements">
+            <div class="hero-pitch-lines"></div>
+          </div>
+          <div class="container">
+            <div class="hero-content">
+              <div class="hero-text">
+                <p class="hero-eyebrow">
+                  Dramelyx Queddeng &mdash; Football &amp; Gaming
+                </p>
+                <h2 class="hero-headline">
+                  Every Match.<br />Every Level.<br />
+                  <span class="hero-headline--accent">Every Story.</span>
+                </h2>
+                <p class="hero-sub">
+                  Documenting my journey in football, gaming, and growth &mdash;
+                  one story at a time. From the grass to the screen, this is
+                  where passion lives.
+                </p>
+                <div class="hero-ctas">
+                  <button
+                    class="cta-btn cta-btn--primary"
+                    onclick="showPage('about')"
+                  >
+                    Read My Story
+                  </button>
+                  <button
+                    class="cta-btn cta-btn--outline"
+                    onclick="showPage('football')"
+                  >
+                    Football Journey
+                  </button>
+                  <button
+                    class="cta-btn cta-btn--ghost"
+                    onclick="showPage('gaming')"
+                  >
+                    Gaming Experiences
+                  </button>
+                </div>
+              </div>
+              <div class="hero-stats">
+                <div class="stat-card" onclick="showPage('football')">
+                  <div class="stat-label">Matches Played</div>
+                  <div class="stat-value">94+</div>
+                </div>
+                <div class="stat-card" onclick="showPage('gaming')">
+                  <div class="stat-label">Games Completed</div>
+                  <div class="stat-value">11+</div>
+                </div>
+                <div class="stat-card" onclick="showPage('about')">
+                  <div class="stat-label">Stories Told</div>
+                  <div class="stat-value infinity-symbol">&#x221e;</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <div class="section-header">
+              <h2 class="section-title">From the Pitch</h2>
+              <a class="view-all" onclick="showPage('gallery')"
+                >View All Photos</a
+              >
+            </div>
+            <div class="gallery-grid">
+              <div class="gallery-item" onclick="showPage('gallery')">
+                <img
+                  src="Photos/RAAMcover.jpeg"
+                  alt="RAAM 2024"
+                  class="gallery-img"
+                />
+                <div class="gallery-overlay">
+                  <h3 class="gallery-title">RAAM 2024</h3>
+                  <p class="gallery-meta">CALABARZON heroes clash</p>
+                </div>
+              </div>
+              <div class="gallery-item" onclick="showPage('gallery')">
+                <img
+                  src="Photos/Victorycover.jpeg"
+                  alt="Victory Moments"
+                  class="gallery-img"
+                />
+                <div class="gallery-overlay">
+                  <h3 class="gallery-title">Victory Moments</h3>
+                  <p class="gallery-meta">Letting it all sink in</p>
+                </div>
+              </div>
+              <div class="gallery-item" onclick="showPage('gallery')">
+                <img
+                  src="Photos/Trainingcover.jpg"
+                  alt="Training Sessions"
+                  class="gallery-img"
+                />
+                <div class="gallery-overlay">
+                  <h3 class="gallery-title">Training Sessions</h3>
+                  <p class="gallery-meta">Grinding before the big game</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <div class="section-header">
+              <h2 class="section-title">Latest Stories</h2>
+              <a class="view-all" onclick="showPage('stories')">All Articles</a>
+            </div>
+            <div class="blog-posts">
+              <article class="post-card" onclick="showPage('stories')">
+                <div class="post-thumbnail">
+                  <img
+                    src="Photos/Defending.JPG"
+                    alt="How I Improved My Defending Skills"
+                    class="post-thumbnail-img"
+                  />
+                </div>
+                <div class="post-content">
+                  <h3>How I Improved My Defending Skills</h3>
+                  <div class="post-meta">
+                    <span class="post-category">Football</span>
+                    <span>Feb 10, 2026</span>
+                    <span>5 min read</span>
+                  </div>
+                  <p class="post-excerpt">
+                    The journey from inconsistent control to reliable technique.
+                    Breaking down the drills that actually made a difference,
+                    inspired by the precision I saw in FIFA but applied to real
+                    grass.
+                  </p>
+                </div>
+              </article>
+              <article class="post-card" onclick="showPage('stories')">
+                <div class="post-thumbnail">
+                  <img
+                    src="Photos/RDR2.JPG"
+                    alt="Red Dead Redemption 2"
+                    class="post-thumbnail-img"
+                  />
+                </div>
+                <div class="post-content">
+                  <h3>
+                    Red Dead Redemption 2: A Second Playthrough Perspective
+                  </h3>
+                  <div class="post-meta">
+                    <span class="post-category">Gaming</span>
+                    <span>Feb 5, 2026</span>
+                    <span>8 min read</span>
+                  </div>
+                  <p class="post-excerpt">
+                    Returning to Arthur Morgan's story hits different when you
+                    know what's coming. Exploring the details I missed the first
+                    time and why RDR2 remains the gold standard for narrative
+                    gaming.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="gaming-section">
+          <div
+            class="section-header"
+            style="max-width: 1400px; margin: 0 auto 3rem"
+          >
+            <h2 class="section-title">Gaming Corner</h2>
+          </div>
+          <div class="gaming-grid">
+            <div class="game-card" onclick="showPage('gaming')">
+              <div class="game-icon">RDR2</div>
+              <img
+                src="Photos/Arthur.jpg"
+                alt="Red Dead Redemption 2"
+                class="game-image"
+              />
+              <h4>Red Dead Redemption 2</h4>
+              <p>
+                The most immersive western ever made. Arthur's story of
+                redemption continues to resonate long after the credits roll.
+              </p>
+            </div>
+            <div class="game-card" onclick="showPage('gaming')">
+              <div class="game-icon">GOW</div>
+              <img
+                src="Photos/Kratos.jpg"
+                alt="God of War"
+                class="game-image"
+              />
+              <h4>God of War</h4>
+              <p>
+                A masterclass in character development. Kratos and Atreus's
+                journey redefined what action games could achieve narratively.
+              </p>
+            </div>
+            <div class="game-card" onclick="showPage('gaming')">
+              <div class="game-icon">TLOU</div>
+              <img
+                src="Photos/Joel.jpg"
+                alt="The Last of Us"
+                class="game-image"
+              />
+              <h4>The Last of Us</h4>
+              <p>
+                Emotional storytelling at its finest. A game that proves
+                interactive media can rival any other art form.
+              </p>
+            </div>
+            <div class="game-card" onclick="showPage('gaming')">
+              <div class="game-icon">COD</div>
+              <img
+                src="Photos/COD.jpg"
+                alt="Call of Duty: WWII"
+                class="game-image"
+              />
+              <h4>Call of Duty: WWII</h4>
+              <p>
+                One of the most emotionally impactful entries in the franchise.
+                The story of ordinary soldiers in extraordinary times.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- END HOME -->
+
+      <!-- ========== FOOTBALL PAGE ========== -->
+      <div data-page="football">
+        <div class="football-page-section">
+          <div class="container">
+            <div class="page-hero">
+              <p class="page-eyebrow">On the Field — Since 2016</p>
+              <h2 class="section-title">The Pitch</h2>
+              <p class="page-intro">
+                Football is more than a sport to me — it's where discipline is
+                built, teamwork is tested, and growth happens in real time.
+                Here's my journey from first kick to championship matches across
+                Calabarzon.
+              </p>
+            </div>
+            <div class="highlight-cards-row">
+              <div class="highlight-card highlight-card--green">
+                <div class="highlight-card__icon">⚽</div>
+                <div class="highlight-card__value">94+</div>
+                <div class="highlight-card__label">Matches Played</div>
+              </div>
+              <div class="highlight-card highlight-card--green">
+                <div class="highlight-card__icon">🏆</div>
+                <div class="highlight-card__value">RAAM CALABARZON</div>
+                <div class="highlight-card__label">2024 Tournament</div>
+              </div>
+              <div class="highlight-card highlight-card--green">
+                <div class="highlight-card__icon">📍</div>
+                <div class="highlight-card__value">ICCAC-CAF</div>
+                <div class="highlight-card__label">2025 Tournament</div>
+              </div>
+              <div class="highlight-card highlight-card--green">
+                <div class="highlight-card__icon">🛡️</div>
+                <div class="highlight-card__value">RB</div>
+                <div class="highlight-card__label">Primary Position</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Football Journey-->
+        <div class="football-journey-section">
+          <div class="container">
+            <div class="page-hero">
+              <h2 class="section-title">FOOTBALL JOURNEY</h2>
+            </div>
+            <p class="page-intro">
+              Football has taught me <strong>discipline</strong>,
+              <strong>teamwork</strong>, and <strong>resilience</strong> through
+              every training session and match.
+            </p>
+
+            <h3 class="sub-section-title">How I Started Football</h3>
+            <p class="page-intro">
+              My journey began in elementary school when I was in fourth grade
+              and played on my school team, back then I didn't know much about
+              the game but I loved it. I made friends and had exceptional
+              trainors who believed in me. I enjoyed running around the fields
+              and playing with my friends. After being selected to play for the
+              congressional athletic meet I realized that this game would be my
+              passion for life. After that I continued to play football in high
+              school up until now in my college years.
+            </p>
+
+            <h3 class="sub-section-title">Challenges I Faced</h3>
+            <p class="page-intro">
+              The road wasn't always smooth. I struggled with balancing
+              academics and sports, faced injuries that sidelined me for months,
+              and dealt with the pressure of competition. There were times when
+              I questioned if I was good enough, but each challenge taught me
+              valuable lessons about perseverance and mental toughness.
+            </p>
+
+            <h3 class="sub-section-title">Why I Kept Going</h3>
+            <p class="page-intro">
+              Despite the setbacks, football remained my anchor. The bond with
+              my teammates, the thrill of competition, and the personal growth
+              kept me motivated. Every goal scored, every match won, and even
+              every loss taught me something new about myself and about life.
+              Football became more than just a sport, it became my teacher and
+              my home.
+            </p>
+
+            <div class="page-hero">
+              <h2 class="section-title">FOOTBALL CARDS</h2>
+            </div>
+            <div class="football-stats">
+              <div class="stat-card">
+                <div class="stat-label">Years Playing</div>
+                <div class="stat-value">10</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Favorite Position</div>
+                <div class="stat-value">Right Back</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Skills Developed</div>
+                <div class="stat-value">Teamwork</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Greatest Lesson</div>
+                <div class="stat-value">Discipline</div>
+              </div>
+            </div>
+
+            <h3 class="sub-section-title">Grassroots Football</h3>
+            <div class="football-gallery">
+              <div class="gallery-item">
+                <img
+                  src="Photos/Football/FB_IMG_1680615810391.jpg"
+                  alt="Grassroots Football 1"
+                  class="gallery-img"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="Photos/Football/FB_IMG_1680614747103.jpg"
+                  alt="Grassroots Football 2"
+                  class="gallery-img"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="Photos/Football/grassroots.jpg"
+                  alt="Grassroots Football 3"
+                  class="gallery-img"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="Photos/Football/FB_IMG_1680615848994.jpg"
+                  alt="Grassroots Football 4"
+                  class="gallery-img"
+                />
+              </div>
+            </div>
+
+            <h3 class="sub-section-title">High School Football</h3>
+            <div class="football-gallery">
+              <div class="gallery-item">
+                <img
+                  src="Photos/Football/IMG_20190903_055802.jpg"
+                  alt="High School Football 1"
+                  class="gallery-img"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="Photos/Football/FB_IMG_1707168776676.jpg"
+                  alt="High School Football 2"
+                  class="gallery-img"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="Photos/Football/FB_IMG_1710855040060.jpg"
+                  alt="High School Football 3"
+                  class="gallery-img"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="Photos/Football/FB_IMG_1712479777097.jpg"
+                  alt="High School Football 4"
+                  class="gallery-img"
+                />
+              </div>
+            </div>
+
+            <h3 class="sub-section-title">College Football</h3>
+            <div class="football-gallery">
+              <div class="gallery-item">
+                <img
+                  src="Photos/TeamPhoto.jpg"
+                  alt="College Football 1"
+                  class="gallery-img"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="Photos/Football/6fa55bee-34ef-471b-b3af-e27ff4332515.jpg"
+                  alt="College Football 2"
+                  class="gallery-img"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="Photos/Football/college1.jpg"
+                  alt="College Football 3"
+                  class="gallery-img"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="Photos/Football/99ffcbc8-24c5-459c-ba9f-81c2639f36fe.jpg"
+                  alt="College Football 4"
+                  class="gallery-img"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END FOOTBALL -->
+
+      <!-- ========== GAMING PAGE ========== -->
+      <div data-page="gaming">
+        <div class="gaming-page-section">
+          <div class="container">
+            <div class="page-hero">
+              <p class="page-eyebrow">
+                PlayStation &mdash; Story-Driven Experiences
+              </p>
+              <h2 class="section-title">The Console</h2>
+              <p class="page-intro">
+                Gaming, for me, has always been about the story. Give me a world
+                that breathes, characters that feel real, and decisions that
+                matter — and I'm all in. These are the games that left a mark.
+              </p>
+            </div>
+            <div class="highlight-cards-row">
+              <div class="highlight-card highlight-card--gold">
+                <div class="highlight-card__icon">🎮</div>
+                <div class="highlight-card__value">11+</div>
+                <div class="highlight-card__label">Games Completed</div>
+              </div>
+              <div class="highlight-card highlight-card--gold">
+                <div class="highlight-card__icon">📖</div>
+                <div class="highlight-card__value">Story</div>
+                <div class="highlight-card__label">Favorite Genre</div>
+              </div>
+              <div class="highlight-card highlight-card--gold">
+                <div class="highlight-card__icon">⭐</div>
+                <div class="highlight-card__value">RDR2</div>
+                <div class="highlight-card__label">All-Time Favorite</div>
+              </div>
+              <div class="highlight-card highlight-card--gold">
+                <div class="highlight-card__icon">🕹️</div>
+                <div class="highlight-card__value">PS4</div>
+                <div class="highlight-card__label">Primary Platform</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gaming Journey -->
+        <div class="gaming-journey-section">
+          <div class="container">
+            <div class="page-hero">
+              <h2 class="section-title">GAMING JOURNEY</h2>
+            </div>
+            <p class="page-intro">
+              Gaming has developed my <strong>patience</strong>,
+              <strong>strategic thinking</strong>, and
+              <strong>problem-solving skills</strong>.
+            </p>
+
+            <h3 class="sub-section-title">How I Started Gaming</h3>
+            <p class="page-intro">
+              My gaming journey began when my best friend let me borrow his PSP
+              (PlayStation Portable) and I played a game called Patapon. As a
+              kid, I was fascinated by the graphics and gameplay, and I wanted
+              to experience it for myself. I asked my parents to buy me a PSP
+              but unfortunately we didn't have the luxury to buy those kinds of
+              things. Fast forward to when I was in ninth grade, I finally got
+              my hands on a PlayStation 4 and started playing games like GTAV,
+              Red Dead Redemption 2, and God of War.
+            </p>
+
+            <h3 class="sub-section-title">How Gaming Became Part of My Life</h3>
+            <p class="page-intro">
+              Gaming transformed from a hobby into an essential part of my life
+              when I realized how much it was teaching me. For some maybe it's
+              just a way to pass time, but for me it's the opposite. I wanted
+              time to slow down and enjoy every moment. Gaming taught me
+              patience, strategy, and problem-solving skills that I still use
+              today. It's not just about the games themselves, but the lessons
+              they teach and the memories they create especially when playing
+              with friends.
+            </p>
+
+            <div class="page-hero">
+              <h2 class="section-title">GAMING CARDS</h2>
+            </div>
+            <div class="gaming-stats">
+              <div class="stat-card">
+                <div class="stat-label">Favorite Console</div>
+                <div class="stat-value">PlayStation 4</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Favorite Genre</div>
+                <div class="stat-value">Action-Adventure</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Skills Developed</div>
+                <div class="stat-value">Strategy</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Best Trait</div>
+                <div class="stat-value">Adaptability</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game Grid-->
+        <div class="gaming-page-section">
+          <div class="container">
+            <div class="gaming-grid" style="margin-top: 3rem">
+              <div class="game-card">
+                <div class="game-icon">RDR2</div>
+                <img
+                  src="Photos/Arthur.jpg"
+                  alt="Red Dead Redemption 2"
+                  class="game-image"
+                />
+                <h4>Red Dead Redemption 2</h4>
+                <p>
+                  The most immersive western ever made. Arthur's story of
+                  redemption continues to resonate long after the credits roll.
+                </p>
+              </div>
+              <div class="game-card">
+                <div class="game-icon">GOW</div>
+                <img
+                  src="Photos/Kratos.jpg"
+                  alt="God of War"
+                  class="game-image"
+                />
+                <h4>God of War</h4>
+                <p>
+                  A masterclass in character development. Kratos and Atreus's
+                  journey redefined what action games could achieve narratively.
+                </p>
+              </div>
+              <div class="game-card">
+                <div class="game-icon">TLOU</div>
+                <img
+                  src="Photos/Joel.jpg"
+                  alt="The Last of Us"
+                  class="game-image"
+                />
+                <h4>The Last of Us</h4>
+                <p>
+                  Emotional storytelling at its finest. A game that proves
+                  interactive media can rival any other art form.
+                </p>
+              </div>
+              <div class="game-card">
+                <div class="game-icon">COD</div>
+                <img
+                  src="Photos/COD.jpg"
+                  alt="Call of Duty: WWII"
+                  class="game-image"
+                />
+                <h4>Call of Duty: WWII</h4>
+                <p>
+                  One of the most emotionally impactful entries in the
+                  franchise. The story of ordinary soldiers in extraordinary
+                  times.
+                </p>
+              </div>
+              <div class="game-card">
+                <div class="game-icon">NFS</div>
+                <img
+                  src="Photos/nfs.jpg"
+                  alt="Need for Speed Heat"
+                  class="game-image"
+                />
+                <h4>Need for Speed Heat</h4>
+                <p>
+                  High-octane street racing action with stunning visuals and
+                  adrenaline-pumping gameplay. Customize your ride and dominate
+                  the streets of Palm City.
+                </p>
+              </div>
+              <div class="game-card">
+                <div class="game-icon">SM</div>
+                <img
+                  src="Photos/SM.jpg"
+                  alt="Marvel's Spider-Man"
+                  class="game-image"
+                />
+                <h4>Marvel's Spider-Man</h4>
+                <p>
+                  Swing through New York City as the iconic web-slinger.
+                  Experience the ultimate Spider-Man fantasy with fluid combat
+                  and an emotional story.
+                </p>
+              </div>
+              <div class="game-card">
+                <div class="game-icon">BO3</div>
+                <img
+                  src="Photos/bo3.jpg"
+                  alt="Call of Duty: Black Ops 3"
+                  class="game-image"
+                />
+                <h4>Call of Duty: Black Ops 3</h4>
+                <p>
+                  Intense multiplayer action with advanced movement systems and
+                  deep customization. A futuristic warfare experience that
+                  redefined the franchise.
+                </p>
+              </div>
+              <div class="game-card">
+                <div class="game-icon">GTAV</div>
+                <img
+                  src="Photos/gta5.jpg"
+                  alt="Grand Theft Auto V"
+                  class="game-image"
+                />
+                <h4>Grand Theft Auto V</h4>
+                <p>
+                  An open-world masterpiece that redefined gaming. Experience
+                  three unique stories in the sprawling city of Los Santos with
+                  endless possibilities.
+                </p>
+              </div>
+              <div class="game-card">
+                <div class="game-icon">MLB</div>
+                <img
+                  src="Photos/mlb.jpg"
+                  alt="MLB The Show 21"
+                  class="game-image"
+                />
+                <h4>MLB The Show 21</h4>
+                <p>
+                  America's pastime comes to life with stunning realism. Build
+                  your dream team, master the diamond, and experience the thrill
+                  of the big leagues.
+                </p>
+              </div>
+              <div class="game-card">
+                <div class="game-icon">NBA</div>
+                <img src="Photos/2k21.jpg" alt="NBA 2K21" class="game-image" />
+                <h4>NBA 2K21</h4>
+                <p>
+                  The basketball simulation that sets the standard. With
+                  improved gameplay mechanics and stunning visuals, dominate the
+                  court like never before.
+                </p>
+              </div>
+              <div class="game-card">
+                <div class="game-icon">MK</div>
+                <img
+                  src="Photos/mk.jpg"
+                  alt="Mortal Kombat XL"
+                  class="game-image"
+                />
+                <h4>Mortal Kombat XL</h4>
+                <p>
+                  Brutal fighting action returns with the legendary roster.
+                  Experience the bone-crunching combat and fatalities that
+                  defined a generation of fighters.
+                </p>
+              </div>
+              <div class="game-card">
+                <div class="game-icon">R6</div>
+                <img
+                  src="Photos/r6.jpg"
+                  alt="Rainbow Six Siege"
+                  class="game-image"
+                />
+                <h4>Rainbow Six Siege</h4>
+                <p>
+                  Tactical multiplayer shooter that rewards strategy and
+                  teamwork. Breach walls, reinforce positions, and outsmart your
+                  opponents in intense close-quarters combat.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END GAMING -->
+
+      <!-- ========== GALLERY PAGE ========== -->
+      <div data-page="gallery">
+        <div class="container">
+          <div class="page-hero">
+            <p class="page-eyebrow">Photos &mdash; Football &amp; Gaming</p>
+            <h2 class="section-title">Gallery</h2>
+          </div>
+          <div class="gallery-grid" style="margin-top: 2rem">
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1567682431498.jpg"
+                alt="Football Action"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1567682447174.jpg"
+                alt="Team Practice"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1680614747103.jpg"
+                alt="Game Day"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1680615634434.jpg"
+                alt="Match Preparation"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1680615810391.jpg"
+                alt="Team Huddle"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1680615837732.jpg"
+                alt="Warm Up"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1680615848994.jpg"
+                alt="Drills Session"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1689607260181.jpg"
+                alt="Competition Match"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1699748114574.jpg"
+                alt="Victory Celebration"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1699816992371.jpg"
+                alt="Training Ground"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1707168776676.jpg"
+                alt="Skills Training"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1710855040060.jpg"
+                alt="Match Strategy"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1711918596652.jpg"
+                alt="Team Formation"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1711918608381.jpg"
+                alt="Pre-Match"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1711918611158.jpg"
+                alt="Warm Up Routine"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1712479777097.jpg"
+                alt="Match Intensity"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1712481867905.jpg"
+                alt="Team Spirit"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1712491132293.jpg"
+                alt="Championship Moment"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1746586227007.jpg"
+                alt="Training Drills"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1746607437024.jpg"
+                alt="Match Focus"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/FB_IMG_1746697126720.jpg"
+                alt="Team Celebration"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20230331171225.jpg"
+                alt="Practice Session"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20230408150332.jpg"
+                alt="Skills Development"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240116182008.jpg"
+                alt="Training Ground Action"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240202162140 (1).jpg"
+                alt="Match Preparation"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240305162824 (1).jpg"
+                alt="Team Training"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240305183832.jpg"
+                alt="Drill Practice"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240306162346.jpg"
+                alt="Match Day Focus"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240306181623.jpg"
+                alt="Training Complete"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240310132844 (1).jpg"
+                alt="Skills Session"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240404074736.jpg"
+                alt="Match Action Shot"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240405104013.jpg"
+                alt="Training Intensity"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240408135354.jpg"
+                alt="Team Practice"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240619165917.jpg"
+                alt="Championship Training"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240911172105.jpg"
+                alt="Match Strategy"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20240918152237.jpg"
+                alt="Team Bonding"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20250402104845.jpg"
+                alt="Pre-Season Training"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20250407185201.jpg"
+                alt="Match Performance"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20250423185125.jpg"
+                alt="Training Excellence"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG20250829183133.jpg"
+                alt="Team Victory"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG_20190903_055713.jpg"
+                alt="Football Journey"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG_20190903_055759.jpg"
+                alt="Practice Session"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG_20230213_183423.jpg"
+                alt="Match Preparation"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Football/IMG_20230717_232153.jpg"
+                alt="Night Training"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Victorycover.jpeg"
+                alt="Victory Moments"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Teamwork.jpeg"
+                alt="Teamwork"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/TeamPhoto.jpg"
+                alt="Team Photo"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/RAAMcover.jpeg"
+                alt="RAAM 2024"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Defending.JPG"
+                alt="Defending Drills"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/CENCIT.jpg"
+                alt="CEN vs CIT"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Gaming/Call of Duty®_ WWII_20220320105917.jpg"
+                alt="Call of Duty WWII Screenshot 1"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Gaming/Call of Duty®_ WWII_20220320143609.jpg"
+                alt="Call of Duty WWII Screenshot 2"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Gaming/God of War_20221107205649.jpg"
+                alt="God of War Screenshot 1"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Gaming/God of War_20221109190656.jpg"
+                alt="God of War Screenshot 2"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Gaming/Red Dead Redemption 2_20201228141035.jpg"
+                alt="Red Dead Redemption 2 Screenshot 1"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Gaming/Red Dead Redemption 2_20220227112931.jpg"
+                alt="Red Dead Redemption 2 Screenshot 2"
+                class="gallery-img"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="Photos/Gaming/Red Dead Redemption 2_20260406012614.jpg"
+                alt="Red Dead Redemption 2 Screenshot 3"
+                class="gallery-img"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END GALLERY -->
+
+      <!-- ========== STORIES / JOURNAL PAGE ========== -->
+      <div data-page="stories">
+        <div class="stories-section">
+          <div class="container">
+            <div class="page-hero">
+              <p class="page-eyebrow">Personal Reflections &amp; Experiences</p>
+              <h2 class="section-title">Journal</h2>
+            </div>
+            <div class="blog-posts" style="margin-top: 2rem">
+              <article class="post-card">
+                <div class="post-thumbnail">
+                  <img
+                    src="Photos/Defending.JPG"
+                    alt="Defending"
+                    class="post-thumbnail-img"
+                  />
+                </div>
+                <div class="post-content">
+                  <h3>How I Improved My Defending Skills</h3>
+                  <div class="post-meta">
+                    <span class="post-category">Football</span>
+                    <span>June 10, 2023</span>
+                  </div>
+                  <p class="post-excerpt">
+                    The journey from inconsistent control to reliable technique.
+                    Breaking down the drills that actually made a difference,
+                    inspired by the precision I saw in FIFA but applied to real
+                    grass.
+                  </p>
+                </div>
+              </article>
+              <article class="post-card">
+                <div class="post-thumbnail">
+                  <img
+                    src="Photos/RDR2.JPG"
+                    alt="Red Dead Redemption 2"
+                    class="post-thumbnail-img"
+                  />
+                </div>
+                <div class="post-content">
+                  <h3>
+                    Red Dead Redemption 2: A Second Playthrough Perspective
+                  </h3>
+                  <div class="post-meta">
+                    <span class="post-category">Gaming</span>
+                    <span>Sept 5, 2024</span>
+                  </div>
+                  <p class="post-excerpt">
+                    Returning to Arthur Morgan's story hits different when you
+                    know what's coming. Exploring the details I missed the first
+                    time and why RDR2 remains the gold standard for narrative
+                    gaming.
+                  </p>
+                </div>
+              </article>
+              <article class="post-card">
+                <div class="post-thumbnail">
+                  <img
+                    src="Photos/Teamwork.jpeg"
+                    alt="Teamwork"
+                    class="post-thumbnail-img"
+                  />
+                </div>
+                <div class="post-content">
+                  <h3>
+                    Lessons from the Championship: When Teamwork Beats Talent
+                  </h3>
+                  <div class="post-meta">
+                    <span class="post-category">Football</span>
+                    <span>May 16, 2024</span>
+                  </div>
+                  <p class="post-excerpt">
+                    We weren't the most skilled team on paper, but we understood
+                    each other. A reflection on communication, trust, and why
+                    the best football is played with your head up.
+                  </p>
+                </div>
+              </article>
+              <article class="post-card">
+                <div class="post-thumbnail">
+                  <img
+                    src="Photos/CODWWII.png"
+                    alt="Call of Duty WWII"
+                    class="post-thumbnail-img"
+                  />
+                </div>
+                <div class="post-content">
+                  <h3>
+                    Call of Duty WWII: Reliving the Horrors of the Second World
+                    War
+                  </h3>
+                  <div class="post-meta">
+                    <span class="post-category">Gaming</span>
+                    <span>Feb 18, 2025</span>
+                  </div>
+                  <p class="post-excerpt">
+                    The emotional weight of WWII in a game that captures both
+                    the horror and heroism of the era. A personal reflection on
+                    how Call of Duty: WWII shaped my understanding of history.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END STORIES -->
+
+      <!-- ========== ABOUT PAGE ========== -->
+      <div data-page="about">
+        <div class="container">
+          <div class="about-content">
+            <!-- Page Hero -->
+            <div class="page-hero">
+              <p class="page-eyebrow">The Person Behind the Blog</p>
+              <h2 class="section-title">My Story</h2>
+            </div>
+            <!-- Two-column layout: left = text, right = sidebar -->
+            <div class="about-layout">
+              <!-- LEFT: Bio text -->
+              <div class="about-text-block">
+                <h3 class="about-section-heading">Who I Am</h3>
+                <p>
+                  I'm Dramelyx Queddeng — a football player, console gamer, and
+                  storyteller based in Lucban, Quezon, Philippines. I've been
+                  playing football since 2016, competing in tournaments and
+                  representing my team through wins, losses, and everything in
+                  between. Off the pitch, I'm obsessed with story-driven games
+                  that challenge how I think and feel.
+                </p>
+
+                <h3 class="about-section-heading">Why I Started This Blog</h3>
+                <p>
+                  I started Pitch &amp; Pixels because I wanted a place to
+                  document my journey honestly, not just the highlights, but the
+                  grind, the failures, and the lessons. Whether it's breaking
+                  down a defending drill that finally clicked or unpacking why a
+                  game's ending wrecked me emotionally, this blog is my way of
+                  making sense of experiences worth remembering.
+                </p>
+
+                <h3 class="about-section-heading">What Drives Me</h3>
+                <p>
+                  Football taught me discipline, communication, and how to
+                  perform under pressure. Gaming taught me patience, empathy,
+                  and how to see the world through someone else's story.
+                  Together, they've shaped how I approach growth, one match, one
+                  mission at a time.
+                </p>
+
+                <div class="about-motto">
+                  <span class="motto-label">Personal Motto</span>
+                  <blockquote>
+                    "Discipline on the field, strategy in the game, growth in
+                    life."
+                  </blockquote>
+                </div>
+
+                <!-- Milestones -->
+                <h3 class="about-section-heading" style="margin-top: 2.5rem">
+                  By the Numbers
+                </h3>
+                <div class="about-milestones">
+                  <div class="milestone-item">
+                    <div class="milestone-value">94+</div>
+                    <div class="milestone-label">Matches Played</div>
+                  </div>
+                  <div class="milestone-item">
+                    <div class="milestone-value">11+</div>
+                    <div class="milestone-label">Games Completed</div>
+                  </div>
+                  <div class="milestone-item">
+                    <div class="milestone-value">2016</div>
+                    <div class="milestone-label">Started Playing Football</div>
+                  </div>
+                  <div class="milestone-item">
+                    <div class="milestone-value">4+</div>
+                    <div class="milestone-label">Articles Published</div>
+                  </div>
+                </div>
+
+                <!-- Passions -->
+                <h3 class="about-section-heading" style="margin-top: 2rem">
+                  Passions
+                </h3>
+                <div class="passion-tags">
+                  <span class="passion-tag passion-tag--green"
+                    >⚽ Football</span
+                  >
+                  <span class="passion-tag passion-tag--green"
+                    >🛡️ Defending</span
+                  >
+                  <span class="passion-tag passion-tag--green"
+                    >🏆 Competitions</span
+                  >
+                  <line-break />
+                  <span class="passion-tag passion-tag--gold"
+                    >🎮 Story Games</span
+                  >
+                  <span class="passion-tag passion-tag--gold">🎬 Movies</span>
+                  <span class="passion-tag passion-tag--gold"
+                    >📖 Narratives</span
+                  >
+                </div>
+              </div>
+
+              <!-- RIGHT: Profile card and contact -->
+              <div class="about-sidebar">
+                <!-- Profile card -->
+                <div class="profile-card">
+                  <div class="profile-card__photo">
+                    <img
+                      src="Photos/Profile.jpg"
+                      alt="Profile Photo"
+                      class="profile-img"
+                    />
+                  </div>
+                  <h2 class="profile-card__name">Dramelyx Queddeng</h2>
+                  <div class="profile-card__details">
+                    <div class="detail-item">
+                      <span class="detail-label">Age</span>
+                      <span class="detail-value">19 years old</span>
+                    </div>
+                    <div class="detail-item">
+                      <span class="detail-label">Location</span>
+                      <span class="detail-value"
+                        >Lucban, Quezon, Philippines</span
+                      >
+                    </div>
+                    <div class="detail-item">
+                      <span class="detail-label">Status</span>
+                      <span class="detail-value">Student &amp; Athlete</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Get In Touch -->
+                <div class="contact-card">
+                  <h3 class="contact-card__title">Get In Touch</h3>
+                  <div class="contact-methods">
+                    <a
+                      class="contact-item"
+                      href="mailto:dramelyxqueddeng@gmail.com"
+                    >
+                      <span class="contact-icon">✉</span>
+                      <span class="contact-text"
+                        >dramelyxqueddeng@gmail.com</span
+                      >
+                    </a>
+                    <div class="contact-item">
+                      <span class="contact-icon">☎</span>
+                      <span class="contact-text">+63 915 202 5030</span>
+                    </div>
+                    <a
+                      class="contact-item"
+                      href="https://www.facebook.com/dramelyx.queddeng.7/"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <span class="contact-icon">f</span>
+                      <span class="contact-text">Dramelyx Queddeng</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Message Form -->
+                <div class="contact-form-card">
+                  <h3 class="contact-form-card__title">Send a Message</h3>
+                  <form
+                    class="contact-form"
+                    action="mailto:dramelyxqueddeng@gmail.com"
+                    method="post"
+                    enctype="text/plain"
+                  >
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Your Name"
+                      required
+                      class="form-input"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Your Email"
+                      required
+                      class="form-input"
+                    />
+                    <input
+                      type="text"
+                      name="subject"
+                      placeholder="Subject"
+                      required
+                      class="form-input"
+                    />
+                    <textarea
+                      name="message"
+                      placeholder="Your Message"
+                      rows="4"
+                      required
+                      class="form-textarea"
+                    ></textarea>
+                    <button type="submit" class="form-submit-btn">
+                      Send Message
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <!-- end .about-sidebar -->
+            </div>
+            <!-- end .about-layout -->
+          </div>
+        </div>
+      </div>
+      <!-- END ABOUT -->
+    </main>
+
+    <footer>
+      <div class="container">
+        <nav class="links">
+          <ul>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/dramelyx-queddeng-894460333/"
+                target="_blank"
+              >
+                <img
+                  src="Photos/LinkedInLogo.png"
+                  alt="LinkedIn"
+                  style="width: 40px; height: auto"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/dramelyx.queddeng.7/"
+                target="_blank"
+              >
+                <img
+                  src="Photos/FacebookLogo.png"
+                  alt="Facebook"
+                  style="width: 40px; height: auto"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/m_l3c/" target="_blank">
+                <img
+                  src="Photos/InstagramLogo.png"
+                  alt="Instagram"
+                  style="width: 40px; height: auto"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ml3c10" target="_blank">
+                <img
+                  src="Photos/GithubLogo.png"
+                  alt="GitHub"
+                  style="width: 40px; height: auto"
+                />
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <p>
+          &copy; 2026 Pitch &amp; Pixels. Built with passion for football and
+          gaming.
+        </p>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+
+    <button
+      id="scroll-top"
+      title="Back to top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="var(--accent-lime)"
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+      >
+        <path d="M12 4l-8 8h5v8h6v-8h5z" />
+      </svg>
+    </button>
+  </body>
+</html>

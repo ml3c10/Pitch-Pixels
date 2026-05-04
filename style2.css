@@ -1,0 +1,1755 @@
+/* ===================== GLOBAL ===================== */
+:root {
+  --pitch-dark: #0a0e0d;
+  --pitch-green: #1a4d2e;
+  --accent-lime: #7dff6e;
+  --accent-gold: #ffd93d;
+  --text-primary: #e8f0ed;
+  --text-muted: #8a9d94;
+  --shadow-color: rgba(125, 255, 110, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "IBM Plex Mono", monospace;
+  background: var(--pitch-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Animated background grid */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(26, 77, 46, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 77, 46, 0.1) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridMove 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(60px);
+  }
+}
+
+/* Spotlight effect */
+body::after {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(125, 255, 110, 0.05) 0%,
+    transparent 50%
+  );
+  animation: spotlightMove 30s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes spotlightMove {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10%, -10%);
+  }
+  50% {
+    transform: translate(-5%, 5%);
+  }
+  75% {
+    transform: translate(5%, -5%);
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ===================== HEADER ===================== */
+header {
+  position: relative;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(125, 255, 110, 0.2);
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.site-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  letter-spacing: 0.05em;
+  background: linear-gradient(
+    135deg,
+    var(--accent-lime) 0%,
+    var(--accent-gold) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  line-height: 0.9;
+  margin-bottom: 0.5rem;
+  animation: titleReveal 1s ease-out;
+  cursor: pointer;
+}
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.site-tagline {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  animation: titleReveal 1s ease-out 0.2s both;
+}
+
+nav {
+  animation: titleReveal 1s ease-out 0.4s both;
+  padding-bottom: 0.2rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-family: "Teko", sans-serif;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-lime);
+  transition: width 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent-lime);
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.nav-active {
+  color: var(--accent-lime);
+}
+nav a.nav-active::after {
+  width: 100%;
+}
+
+/* ===================== PAGE SECTIONS ===================== */
+[data-page] {
+  display: none;
+}
+[data-page].active {
+  display: block;
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  padding: 2rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(125, 255, 110, 0.1);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.links ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+/* ===================== HOME HERO ===================== */
+.hero {
+  padding: 5rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero background decorative elements */
+.hero-bg-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-pitch-lines {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(125, 255, 110, 0.3),
+    transparent
+  );
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Hero eyebrow label */
+.hero-eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--accent-lime);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.7s ease-out 0.3s both;
+  opacity: 0.85;
+}
+
+/* Hero headline — bigger, bolder, dominant */
+.hero-headline {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+  color: var(--text-primary);
+}
+
+.hero-headline--accent {
+  background: linear-gradient(
+    135deg,
+    var(--accent-lime) 0%,
+    var(--accent-gold) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 520px;
+  animation: fadeInUp 0.8s ease-out 0.7s both;
+  margin-bottom: 2.5rem;
+}
+
+/* CTA Buttons */
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease-out 0.9s both;
+}
+
+.cta-btn {
+  font-family: "Teko", sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.8rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  line-height: 1;
+}
+
+.cta-btn--primary {
+  background: var(--accent-lime);
+  color: var(--pitch-dark);
+  border-color: var(--accent-lime);
+  font-weight: 700;
+}
+
+.cta-btn--primary:hover {
+  background: transparent;
+  color: var(--accent-lime);
+  box-shadow: 0 0 20px rgba(125, 255, 110, 0.3);
+}
+
+.cta-btn--outline {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: rgba(125, 255, 110, 0.4);
+}
+
+.cta-btn--outline:hover {
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
+  box-shadow: 0 0 15px rgba(125, 255, 110, 0.15);
+}
+
+.cta-btn--ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: rgba(255, 217, 61, 0.3);
+}
+
+.cta-btn--ghost:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+/* Hero stats — unchanged from original */
+.hero-stats {
+  display: grid;
+  gap: 1rem;
+  animation: fadeInUp 0.8s ease-out 1s both;
+}
+
+/* ===================== STAT CARDS (original) ===================== */
+.stat-card {
+  background: rgba(26, 77, 46, 0.3);
+  border: 1px solid rgba(125, 255, 110, 0.2);
+  padding: 1.5rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.stat-card:hover {
+  background: rgba(26, 77, 46, 0.5);
+  border-color: var(--accent-lime);
+  box-shadow: 0 0 20px var(--shadow-color);
+  transform: translateX(5px);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-family: "Teko", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-lime);
+}
+
+.infinity-symbol {
+  font-size: 2.5rem;
+  line-height: 1;
+  font-weight: 300;
+}
+
+/* ===================== SECTIONS (original) ===================== */
+.section {
+  padding: 5rem 0;
+  border-top: 1px solid rgba(125, 255, 110, 0.1);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-family: "Teko", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.view-all {
+  font-family: "Teko", sans-serif;
+  font-size: 1.2rem;
+  color: var(--accent-lime);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding-right: 1.5rem;
+  cursor: pointer;
+}
+
+.view-all::after {
+  content: "→";
+  position: absolute;
+  right: 0;
+  transition: transform 0.3s;
+}
+
+.view-all:hover::after {
+  transform: translateX(5px);
+}
+
+/* ===================== PAGE HERO (enhanced) ===================== */
+.page-hero {
+  padding: 3rem 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Eyebrow label for page heroes */
+.page-eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--accent-lime);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.75rem;
+  opacity: 0.8;
+}
+
+.page-hero h2 {
+  font-family: "Teko", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+/* ===================== GALLERY GRID (original) ===================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 77, 46, 0.3),
+    rgba(125, 255, 110, 0.1)
+  );
+  border: 1px solid rgba(125, 255, 110, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.gallery-item:hover {
+  border-color: var(--accent-lime);
+  box-shadow: 0 10px 40px var(--shadow-color);
+  transform: translateY(-5px);
+}
+
+.gallery-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(125, 255, 110, 0.2),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.gallery-item:hover::before {
+  left: 100%;
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(10, 14, 13, 0.95), transparent);
+  padding: 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.4s;
+}
+
+.gallery-item:hover .gallery-overlay {
+  transform: translateY(0);
+}
+
+.gallery-title {
+  font-family: "Teko", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.gallery-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+/* ===================== BLOG POSTS (original) ===================== */
+.blog-posts {
+  display: grid;
+  gap: 2rem;
+}
+
+.post-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  background: rgba(26, 77, 46, 0.2);
+  border: 1px solid rgba(125, 255, 110, 0.15);
+  border-radius: 4px;
+  padding: 2rem;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.post-card:hover {
+  background: rgba(26, 77, 46, 0.35);
+  border-color: var(--accent-lime);
+  box-shadow: 0 5px 30px var(--shadow-color);
+}
+
+.post-thumbnail {
+  aspect-ratio: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(125, 255, 110, 0.2),
+    rgba(255, 217, 61, 0.1)
+  );
+  border: 1px solid rgba(125, 255, 110, 0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Teko", sans-serif;
+  font-size: 2rem;
+  color: var(--accent-lime);
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+.post-thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.post-card:hover .post-thumbnail-img {
+  transform: scale(1.05);
+}
+
+.post-content h3 {
+  font-family: "Teko", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s;
+}
+
+.post-card:hover h3 {
+  color: var(--accent-lime);
+}
+
+.post-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.post-category {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  background: rgba(125, 255, 110, 0.15);
+  border: 1px solid rgba(125, 255, 110, 0.3);
+  border-radius: 2px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-lime);
+}
+
+.post-excerpt {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ===================== GAMING SECTION (original) ===================== */
+.gaming-section {
+  background: rgba(26, 77, 46, 0.15);
+  padding: 4rem 2rem;
+  margin: 5rem -2rem 0;
+}
+
+.gaming-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.game-card {
+  background: rgba(10, 14, 13, 0.6);
+  border: 1px solid rgba(255, 217, 61, 0.2);
+  border-radius: 4px;
+  padding: 2rem;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 5px 30px rgba(255, 217, 61, 0.15);
+  transform: translateY(-5px);
+}
+
+.game-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-lime));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Teko", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--pitch-dark);
+  font-weight: 700;
+}
+
+.game-card h4 {
+  font-family: "Teko", sans-serif;
+  font-size: 1.5rem;
+  color: var(--accent-gold);
+  margin-bottom: 0.5rem;
+}
+
+.game-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.game-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* ===================== FOOTBALL PAGE (original + enhanced) ===================== */
+.football-page-section {
+  padding: 3rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.football-feature {
+  margin-top: 3rem;
+}
+
+.page-intro {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+  max-width: 700px;
+  margin-top: 1rem;
+}
+
+.sub-section-title {
+  font-family: "Teko", sans-serif;
+  font-size: 2rem;
+  color: var(--accent-lime);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.football-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.cencit-image {
+  width: 200px;
+  border-radius: 10px;
+  border: solid 2px var(--pitch-green);
+}
+
+.team-photo {
+  width: 400px;
+  border-radius: 10px;
+  border: solid 2px var(--pitch-green);
+}
+
+/* ===================== HIGHLIGHT CARDS (new) ===================== */
+.highlight-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2.5rem 0 3rem;
+}
+
+.highlight-card {
+  border-radius: 4px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.highlight-card--green {
+  background: rgba(26, 77, 46, 0.3);
+  border: 1px solid rgba(125, 255, 110, 0.2);
+}
+
+.highlight-card--green::before {
+  background: linear-gradient(90deg, var(--accent-lime), transparent);
+}
+
+.highlight-card--green:hover {
+  background: rgba(26, 77, 46, 0.5);
+  border-color: var(--accent-lime);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(125, 255, 110, 0.15);
+}
+
+.highlight-card--gold {
+  background: rgba(10, 14, 13, 0.6);
+  border: 1px solid rgba(255, 217, 61, 0.2);
+}
+
+.highlight-card--gold::before {
+  background: linear-gradient(90deg, var(--accent-gold), transparent);
+}
+
+.highlight-card--gold:hover {
+  background: rgba(26, 20, 0, 0.5);
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(255, 217, 61, 0.15);
+}
+
+.highlight-card__icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.highlight-card__value {
+  font-family: "Teko", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.highlight-card--green .highlight-card__value {
+  color: var(--accent-lime);
+}
+.highlight-card--gold .highlight-card__value {
+  color: var(--accent-gold);
+}
+
+.highlight-card__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+/* ===================== GAMING PAGE (original) ===================== */
+.gaming-page-section {
+  padding: 3rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================== STORIES PAGE (original) ===================== */
+.stories-section {
+  padding: 3rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================== ABOUT PAGE (enhanced) ===================== */
+.about-content {
+  padding: 3rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  margin-top: 2rem;
+  align-items: start;
+}
+
+.about-section-heading {
+  font-family: "Teko", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--accent-lime);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+}
+
+.about-section-heading:first-child {
+  margin-top: 0;
+}
+
+.about-text-block p {
+  color: var(--text-muted);
+  line-height: 1.85;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-motto {
+  margin-top: 2.5rem;
+  padding: 1.75rem;
+  border-left: 3px solid var(--accent-lime);
+  background: rgba(26, 77, 46, 0.2);
+  border-radius: 0 4px 4px 0;
+}
+
+.motto-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent-lime);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.about-motto blockquote {
+  font-family: "Teko", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.about-milestones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.milestone-item {
+  background: rgba(26, 77, 46, 0.25);
+  border: 1px solid rgba(125, 255, 110, 0.15);
+  border-radius: 4px;
+  padding: 1.25rem;
+  transition: all 0.3s;
+}
+
+.milestone-item:hover {
+  border-color: var(--accent-lime);
+  background: rgba(26, 77, 46, 0.4);
+}
+
+.milestone-value {
+  font-family: "Teko", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-lime);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.milestone-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.passion-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.passion-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+
+.passion-tag--green {
+  background: rgba(125, 255, 110, 0.1);
+  border: 1px solid rgba(125, 255, 110, 0.3);
+  color: var(--accent-lime);
+}
+
+.passion-tag--gold {
+  background: rgba(255, 217, 61, 0.1);
+  border: 1px solid rgba(255, 217, 61, 0.3);
+  color: var(--accent-gold);
+}
+
+/* ===================== ANIMATIONS ===================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================== SCROLL TO TOP ===================== */
+#scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  pointer-events: none;
+  z-index: 999;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+#scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+#scroll-top:hover svg {
+  filter: drop-shadow(0 0 8px rgba(125, 255, 110, 0.6));
+  transform: scale(1.1);
+}
+
+#scroll-top svg {
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+/* ===================== LIGHTBOX ===================== */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-content {
+  transform: scale(1);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.lightbox-close:hover {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  padding: 20px;
+  user-select: none;
+}
+
+.lightbox-nav:hover {
+  color: #bbb;
+}
+.lightbox-prev {
+  left: 20px;
+}
+.lightbox-next {
+  right: 20px;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f1f1f1;
+  font-size: 16px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+  .highlight-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .post-card {
+    grid-template-columns: 1fr;
+  }
+  .post-thumbnail {
+    max-width: 200px;
+  }
+  .section-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  nav ul {
+    gap: 1.5rem;
+  }
+  .team-photo {
+    width: 100%;
+  }
+  .cencit-image {
+    width: 100%;
+  }
+  .header-top {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .highlight-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-milestones {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .highlight-cards-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero-headline {
+    font-size: 3rem;
+  }
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.3s ease;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ===================== FOOTBALL JOURNEY SECTION ===================== */
+.football-journey-section {
+  padding: 4rem 0;
+  background: rgba(26, 77, 46, 0.1);
+  border-top: 1px solid rgba(125, 255, 110, 0.1);
+}
+
+.football-journey-section .page-intro {
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.football-journey-section .sub-section-title {
+  font-family: "Teko", sans-serif;
+  font-size: 1.8rem;
+  color: var(--accent-lime);
+  margin: 2rem 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Football Stats Grid */
+.football-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.football-stats .stat-card {
+  background: rgba(26, 77, 46, 0.3);
+  border: 1px solid rgba(125, 255, 110, 0.2);
+  padding: 1.5rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.football-stats .stat-card:hover {
+  background: rgba(26, 77, 46, 0.5);
+  border-color: var(--accent-lime);
+  box-shadow: 0 0 20px var(--shadow-color);
+  transform: translateX(5px);
+}
+
+.football-stats .stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.football-stats .stat-value {
+  font-family: "Teko", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-lime);
+}
+
+/* Football Gallery */
+.football-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.football-gallery .gallery-item {
+  padding: 0.5rem;
+  background: rgba(26, 77, 46, 0.1);
+  border-radius: 6px;
+  transition: all 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.football-gallery .gallery-item:hover {
+  background: rgba(26, 77, 46, 0.3);
+  transform: scale(1.05);
+}
+
+.football-gallery .gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+/* Responsive Design for Football Journey */
+@media (max-width: 768px) {
+  .football-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .football-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .football-journey-section .sub-section-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===================== GAMING JOURNEY SECTION ===================== */
+.gaming-journey-section {
+  padding: 4rem 0;
+  background: rgba(255, 217, 61, 0.05);
+  border-top: 1px solid rgba(255, 217, 61, 0.1);
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.gaming-journey-section .page-intro {
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.gaming-journey-section .sub-section-title {
+  font-family: "Teko", sans-serif;
+  font-size: 1.8rem;
+  color: var(--accent-gold);
+  margin: 2rem 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Gaming Stats Grid */
+.gaming-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.gaming-stats .stat-card {
+  background: rgba(255, 217, 61, 0.1);
+  border: 1px solid rgba(255, 217, 61, 0.2);
+  padding: 1.5rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.gaming-stats .stat-card:hover {
+  background: rgba(255, 217, 61, 0.2);
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 20px rgba(255, 217, 61, 0.15);
+  transform: translateX(5px);
+}
+
+.gaming-stats .stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.gaming-stats .stat-value {
+  font-family: "Teko", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+/* Responsive Design for Gaming Journey */
+@media (max-width: 768px) {
+  .gaming-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .gaming-journey-section .sub-section-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===================== ABOUT PAGE ===================== */
+.about-content {
+  padding: 3rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Two-column: wide text left, narrow sidebar right */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3.5rem;
+  margin-top: 1rem;
+  align-items: start;
+}
+
+/* ---------- LEFT: text block ---------- */
+.about-section-heading {
+  font-family: "Teko", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--accent-lime);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.about-section-heading:first-child {
+  margin-top: 0;
+}
+
+.about-text-block p {
+  color: var(--text-muted);
+  line-height: 1.85;
+  font-size: 0.95rem;
+}
+
+.about-motto {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-left: 3px solid var(--accent-lime);
+  background: rgba(26, 77, 46, 0.2);
+  border-radius: 0 4px 4px 0;
+}
+
+.motto-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent-lime);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.about-motto blockquote {
+  font-family: "Teko", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+
+/* Milestone grid */
+.about-milestones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.milestone-item {
+  background: rgba(26, 77, 46, 0.25);
+  border: 1px solid rgba(125, 255, 110, 0.15);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  transition: all 0.3s;
+}
+
+.milestone-item:hover {
+  border-color: var(--accent-lime);
+  background: rgba(26, 77, 46, 0.4);
+}
+
+.milestone-value {
+  font-family: "Teko", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-lime);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.milestone-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* Passion tags */
+.passion-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.passion-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+
+.passion-tag--green {
+  background: rgba(125, 255, 110, 0.1);
+  border: 1px solid rgba(125, 255, 110, 0.3);
+  color: var(--accent-lime);
+}
+
+.passion-tag--gold {
+  background: rgba(255, 217, 61, 0.1);
+  border: 1px solid rgba(255, 217, 61, 0.3);
+  color: var(--accent-gold);
+}
+
+/* ---------- RIGHT: sidebar ---------- */
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: sticky;
+  top: 2rem;
+}
+
+/* Profile card */
+.profile-card {
+  background: rgba(26, 77, 46, 0.15);
+  border: 1px solid rgba(125, 255, 110, 0.2);
+  border-radius: 8px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+}
+
+.profile-card__photo {
+  margin-bottom: 1rem;
+}
+
+.profile-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-lime);
+  box-shadow: 0 6px 24px var(--shadow-color);
+}
+
+.profile-card__name {
+  font-family: "Teko", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-lime);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.profile-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+}
+
+.detail-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.detail-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  color: var(--accent-lime);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  min-width: 68px;
+  flex-shrink: 0;
+}
+
+.detail-value {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+/* Get In Touch card */
+.contact-card {
+  background: rgba(10, 14, 13, 0.5);
+  border: 1px solid rgba(125, 255, 110, 0.2);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+}
+
+.contact-card__title {
+  font-family: "Teko", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.contact-icon {
+  font-size: 0.85rem;
+  color: var(--accent-lime);
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+  font-style: normal;
+}
+
+.contact-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  word-break: break-all;
+  transition: color 0.2s;
+}
+
+a.contact-item:hover .contact-text {
+  color: var(--accent-lime);
+}
+
+/* Message form card */
+.contact-form-card {
+  background: rgba(10, 14, 13, 0.5);
+  border: 1px solid rgba(255, 217, 61, 0.2);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+}
+
+.contact-form-card__title {
+  font-family: "Teko", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  background: rgba(26, 77, 46, 0.15);
+  border: 1px solid rgba(125, 255, 110, 0.25);
+  border-radius: 5px;
+  color: var(--text-primary);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent-lime);
+  box-shadow: 0 0 10px rgba(125, 255, 110, 0.15);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-submit-btn {
+  padding: 0.65rem 1.25rem;
+  background: var(--accent-gold);
+  color: var(--pitch-dark);
+  border: 2px solid var(--accent-gold);
+  border-radius: 5px;
+  font-family: "Teko", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 0.25rem;
+}
+
+.form-submit-btn:hover {
+  background: transparent;
+  color: var(--accent-gold);
+}
+
+/* ===================== RESPONSIVE — ABOUT ===================== */
+@media (max-width: 1024px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-milestones {
+    grid-template-columns: 1fr 1fr;
+  }
+}
