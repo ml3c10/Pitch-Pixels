@@ -1,4 +1,4 @@
-/* ===================== GLOBAL ===================== */
+/*  GLOBAL  */
 :root {
   --pitch-dark: #0a0e0d;
   --pitch-green: #1a4d2e;
@@ -91,7 +91,7 @@ body::after {
   padding: 0 2rem;
 }
 
-/* ===================== HEADER ===================== */
+/* HEADER */
 header {
   position: relative;
   padding: 2rem 0;
@@ -198,7 +198,7 @@ nav a.nav-active::after {
   width: 100%;
 }
 
-/* ===================== PAGE SECTIONS ===================== */
+/* PAGE SECTIONS */
 [data-page] {
   display: none;
 }
@@ -206,7 +206,7 @@ nav a.nav-active::after {
   display: block;
 }
 
-/* ===================== FOOTER ===================== */
+/* FOOTER */
 footer {
   padding: 2rem 0;
   margin-top: 3rem;
@@ -236,7 +236,7 @@ footer .container {
   margin-bottom: 1rem;
 }
 
-/* ===================== HOME HERO ===================== */
+/* HOME HERO */
 .hero {
   padding: 5rem 0 4rem;
   position: relative;
@@ -288,7 +288,7 @@ footer .container {
   opacity: 0.85;
 }
 
-/* Hero headline — bigger, bolder, dominant */
+/* Hero headline title */
 .hero-headline {
   font-family: "Bebas Neue", sans-serif;
   font-size: clamp(3.5rem, 7vw, 6rem);
@@ -320,7 +320,7 @@ footer .container {
   margin-bottom: 2.5rem;
 }
 
-/* CTA Buttons */
+/* CTA(call to action) Buttons */
 .hero-ctas {
   display: flex;
   gap: 1rem;
@@ -377,14 +377,14 @@ footer .container {
   color: var(--accent-gold);
 }
 
-/* Hero stats — unchanged from original */
+/* Hero stats */
 .hero-stats {
   display: grid;
   gap: 1rem;
   animation: fadeInUp 0.8s ease-out 1s both;
 }
 
-/* ===================== STAT CARDS (original) ===================== */
+/* STAT CARDS */
 .stat-card {
   background: rgba(26, 77, 46, 0.3);
   border: 1px solid rgba(125, 255, 110, 0.2);
@@ -421,7 +421,7 @@ footer .container {
   font-weight: 300;
 }
 
-/* ===================== SECTIONS (original) ===================== */
+/* SECTIONS */
 .section {
   padding: 5rem 0;
   border-top: 1px solid rgba(125, 255, 110, 0.1);
@@ -465,7 +465,7 @@ footer .container {
   transform: translateX(5px);
 }
 
-/* ===================== PAGE HERO (enhanced) ===================== */
+/* PAGE HERO */
 .page-hero {
   padding: 3rem 0 2rem;
   position: relative;
@@ -492,7 +492,7 @@ footer .container {
   margin-bottom: 1rem;
 }
 
-/* ===================== GALLERY GRID (original) ===================== */
+/* GALLERY GRID */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -579,7 +579,7 @@ footer .container {
   transform: scale(1.05);
 }
 
-/* ===================== BLOG POSTS (original) ===================== */
+/* BLOG POSTS */
 .blog-posts {
   display: grid;
   gap: 2rem;
@@ -671,7 +671,7 @@ footer .container {
   line-height: 1.7;
 }
 
-/* ===================== GAMING SECTION (original) ===================== */
+/* GAMING SECTION */
 .gaming-section {
   background: rgba(26, 77, 46, 0.15);
   padding: 4rem 2rem;
@@ -735,7 +735,7 @@ footer .container {
   margin-bottom: 1rem;
 }
 
-/* ===================== FOOTBALL PAGE (original + enhanced) ===================== */
+/* FOOTBALL PAGE */
 .football-page-section {
   padding: 3rem 0;
   position: relative;
@@ -782,7 +782,7 @@ footer .container {
   border: solid 2px var(--pitch-green);
 }
 
-/* ===================== HIGHLIGHT CARDS (new) ===================== */
+/* HIGHLIGHT CARDS */
 .highlight-cards-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -869,21 +869,21 @@ footer .container {
   color: var(--text-muted);
 }
 
-/* ===================== GAMING PAGE (original) ===================== */
+/* GAMING PAGE */
 .gaming-page-section {
   padding: 3rem 0;
   position: relative;
   z-index: 1;
 }
 
-/* ===================== STORIES PAGE (original) ===================== */
+/* STORIES PAGE */
 .stories-section {
   padding: 3rem 0;
   position: relative;
   z-index: 1;
 }
 
-/* ===================== ABOUT PAGE (enhanced) ===================== */
+/* ABOUT PAGE */
 .about-content {
   padding: 3rem 0;
   position: relative;
@@ -1008,7 +1008,7 @@ footer .container {
   color: var(--accent-gold);
 }
 
-/* ===================== ANIMATIONS ===================== */
+/* ANIMATIONS */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1020,7 +1020,7 @@ footer .container {
   }
 }
 
-/* ===================== SCROLL TO TOP ===================== */
+/* SCROLL TO TOP */
 #scroll-top {
   position: fixed;
   bottom: 2rem;
@@ -1057,7 +1057,7 @@ footer .container {
     filter 0.2s ease;
 }
 
-/* ===================== LIGHTBOX ===================== */
+/* LIGHTBOX */
 .lightbox {
   display: none;
   position: fixed;
@@ -1140,7 +1140,7 @@ footer .container {
   font-size: 16px;
 }
 
-/* ===================== RESPONSIVE ===================== */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
   .highlight-cards-row {
     grid-template-columns: repeat(2, 1fr);
@@ -1220,7 +1220,7 @@ footer .container {
   }
 }
 
-/* ===================== FOOTBALL JOURNEY SECTION ===================== */
+/* FOOTBALL JOURNEY SECTION */
 .football-journey-section {
   padding: 4rem 0;
   background: rgba(26, 77, 46, 0.1);
@@ -1333,7 +1333,7 @@ footer .container {
   }
 }
 
-/* ===================== GAMING JOURNEY SECTION ===================== */
+/* GAMING JOURNEY SECTION */
 .gaming-journey-section {
   padding: 4rem 0;
   background: rgba(255, 217, 61, 0.05);
@@ -1410,7 +1410,7 @@ footer .container {
   }
 }
 
-/* ===================== ABOUT PAGE ===================== */
+/* ABOUT PAGE */
 .about-content {
   padding: 3rem 0;
   position: relative;
@@ -1426,7 +1426,7 @@ footer .container {
   align-items: start;
 }
 
-/* ---------- LEFT: text block ---------- */
+/* LEFT: text block */
 .about-section-heading {
   font-family: "Teko", sans-serif;
   font-size: 1.6rem;
@@ -1538,7 +1538,7 @@ footer .container {
   color: var(--accent-gold);
 }
 
-/* ---------- RIGHT: sidebar ---------- */
+/* RIGHT: sidebar */
 .about-sidebar {
   display: flex;
   flex-direction: column;
@@ -1736,7 +1736,7 @@ a.contact-item:hover .contact-text {
   color: var(--accent-gold);
 }
 
-/* ===================== RESPONSIVE — ABOUT ===================== */
+/* RESPONSIVE — ABOUT */
 @media (max-width: 1024px) {
   .about-layout {
     grid-template-columns: 1fr;

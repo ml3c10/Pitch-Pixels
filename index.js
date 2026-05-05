@@ -5,7 +5,7 @@ function showPage(id) {
   $("[data-page]").removeClass("active");
   console.log("Hidden all pages");
 
-  // Show target page
+  // Show target page and log if it exists; error if not found
   const $targetPage = $(`[data-page="${id}"]`);
   if ($targetPage.length === 0) {
     console.error("Page not found:", id);
@@ -40,7 +40,7 @@ function showPage(id) {
   requestAnimationFrame(() => {
     // Target all elements within the active page for consistent animation
     const elements = $(`[data-page="${id}"] *`).filter(function () {
-      // Only animate visible elements, not text nodes or empty elements
+      // Only animate visible elements
       return this.nodeType === 1 && $(this).is("*");
     });
 
@@ -78,7 +78,7 @@ $(document).ready(function () {
     showPage(id);
   });
 
-  // Scroll-to-top button visibility
+  // Scroll-to-top button visibility when scrolled at least 300px
   const $scrollBtn = $("#scroll-top");
   $(window).on("scroll", function () {
     if ($(window).scrollTop() > 300) {
