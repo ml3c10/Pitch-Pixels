@@ -30,7 +30,7 @@ function showPage(id) {
   };
   document.title = titles[id] || "Pitch & Pixels";
 
-  // Push URL hash for back-button support (may be blocked in iframes)
+  // Push URL hash for back-button support
   try {
     history.pushState({ page: id }, "", `#${id}`);
   } catch (e) {}
